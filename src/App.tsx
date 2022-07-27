@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
-import { List, ListSubheader, ListItem } from "@mui/material";
+import { List, ListSubheader, ListItem, Box } from "@mui/material";
+
+import { Typography } from '@mui/material';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -57,22 +59,13 @@ const App = (props: any) => {
   
   
 	return (
-    <div className="App">
-      <h1>Lista de usuários</h1>
-      <div className="card">
-        {loading ? <h2>Carregando...</h2> : null}
+    <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+      <Typography sx={{ fontFamily: 'Comfortaa', fontSize: 40, color: '#EC7E31' }}>Lista de Usuários</Typography>
+        {loading ? <Typography sx={{ fontFamily: 'Comfortaa', fontSize: 25, color: '#EC7E31' }}>Carregando...</Typography> : null}
 
         <TableComponent usuarios={users}></TableComponent>
-				{/* <ul>
-					{users.map((user) => (
-            //<li key={user.id}>{user.name}</li>
-            <List sx={{ listStyleType: 'disc' }}>
-              <ListItem sx={{ display: 'list-item' }} key={user.id}>{user.name} | {user.username}</ListItem>
-            </List>
-					))}
-				</ul> */}
-			</div>
-    </div>
+        
+    </Box>
   )
 }
 
