@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import App from './pages/App'
 import './index.css'
 
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
@@ -12,8 +12,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        {/* <Route path="tarefas/:userId" element={<Tarefas />} />
-        <Route path="posts/:userId" element={<Posts />} /> */}
         <Route
           path="*"
           element={
@@ -21,7 +19,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
               <Typography sx={{ fontFamily: 'Comfortaa', fontSize: 40, color: '#EC7E31' }}>Essa página não existe.</Typography>
               <Link href='/' sx={{ fontFamily: 'Comfortaa' }}>Voltar para página inicial</Link>
             </>
-            
           }
         />
       </Routes>
