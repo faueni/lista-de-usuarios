@@ -1,6 +1,7 @@
 import "../App.css";
 import { useState, useEffect } from "react";
 import PostListComponent from "../components/PostListComponent";
+import AppNavBarComponent from "../components/AppNavBarComponent";
 import { Typography } from '@mui/material';
 import { useParams } from "react-router-dom";
 
@@ -22,6 +23,7 @@ const Posts = (props: any) => {
 
 	return (
         <>
+            <AppNavBarComponent user_id={params.user_id} current_page="posts"/>
             <Typography variant='h3' sx={{ fontFamily: 'Comfortaa', color: '#EC7E31' }}>Posts</Typography>
             {loading ? <Typography sx={{ fontFamily: 'Comfortaa', fontSize: 25, color: '#EC7E31' }}>Carregando...</Typography> : null}
             <PostListComponent posts={posts}/>
