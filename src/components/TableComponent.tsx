@@ -17,6 +17,7 @@ const TableComponent = (props:any) => {
             <TableCell sx={{fontWeight: "bold" }}>Username</TableCell>
             <TableCell sx={{fontWeight: "bold" }}>E-mail</TableCell>
             <TableCell sx={{fontWeight: "bold" }}>Tarefas</TableCell>
+            <TableCell sx={{fontWeight: "bold" }}>Posts</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -32,6 +33,7 @@ const TableComponent = (props:any) => {
               <TableCell>{row.username}</TableCell>
               <TableCell>{row.email}</TableCell>
               <TableCell><Link to={`/tarefas/${row.id}`}>Ver Tarefas</Link></TableCell>
+              <TableCell><Link to={`/posts/${row.id}`}>Ver Posts</Link></TableCell>
             </TableRow>
           ))}
         </TableBody>

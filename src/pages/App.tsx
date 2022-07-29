@@ -21,7 +21,7 @@ const App = (props: any) => {
   
 	return (
     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-      <Typography sx={{ fontFamily: 'Comfortaa', fontSize: 40, color: '#EC7E31' }}>Lista de Usuários</Typography>
+        <Typography variant='h3' sx={{ fontFamily: 'Comfortaa', color: '#EC7E31' }}>Lista de Usuários</Typography>
         {loading ? <Typography sx={{ fontFamily: 'Comfortaa', fontSize: 25, color: '#EC7E31' }}>Carregando...</Typography> : null}
         <TableComponent usuarios={users}></TableComponent>
     </Box>

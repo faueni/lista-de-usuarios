@@ -1,32 +1,32 @@
 import "../App.css";
 import { useState, useEffect } from "react";
-import TaskListComponent from "../components/TaskListComponent";
+import PostListComponent from "../components/PostListComponent";
 import { Typography } from '@mui/material';
 import { useParams } from "react-router-dom";
 
 
-const Tarefas = (props: any) => {
+const Posts = (props: any) => {
     let params = useParams();
     
-    const [tarefas, setTarefas] = useState([]);
+    const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/users/${params.user_id}/todos`)
+        fetch(`https://jsonplaceholder.typicode.com/users/${params.user_id}/posts`)
             .then((response) => response.json())
             .then((json) => {
-        setTarefas(json); 
+        setPosts(json); 
         setLoading(false)
         });
     });
 
 	return (
         <>
-            <Typography variant='h3' sx={{ fontFamily: 'Comfortaa', color: '#EC7E31' }}>Tarefas</Typography>
+            <Typography variant='h3' sx={{ fontFamily: 'Comfortaa', color: '#EC7E31' }}>Posts</Typography>
             {loading ? <Typography sx={{ fontFamily: 'Comfortaa', fontSize: 25, color: '#EC7E31' }}>Carregando...</Typography> : null}
-            <TaskListComponent tasks={tarefas}/>
+            <PostListComponent posts={posts}/>
         </>
     )
 }
 
-export default Tarefas
+export default Posts
