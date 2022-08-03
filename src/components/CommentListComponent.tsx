@@ -3,13 +3,13 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
-import { Button, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const PostListComponent = (props: any) => {
+const CommentListComponent = (props: any) => {
   return (
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-        {props.posts.map((post: any) => (    
+        {props.comments.map((comment: any) => (    
             <>
             <ListItem alignItems="flex-start">
                 <ListItemText
@@ -19,19 +19,16 @@ const PostListComponent = (props: any) => {
                             component="span"
                             variant="body2"
                             color="text.primary"
-                        >{post.title}
+                        >{comment.email}
                         </Typography>
                     }
                     secondary={
                         <React.Fragment>
-                        {post.body}
+                        {comment.name}
                         </React.Fragment>
                     }
                 />
-                <Button variant="contained"
-                component={Link} 
-                to={`/comments/${post.id}`}>Comentários</Button>
-                {/* https://jsonplaceholder.typicode.com/posts/1/comments */}
+                
             </ListItem>
             <Divider component="li" />
             </>
@@ -40,4 +37,4 @@ const PostListComponent = (props: any) => {
   );
 }
 
-export default PostListComponent;
+export default CommentListComponent;
