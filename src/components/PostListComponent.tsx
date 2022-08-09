@@ -5,6 +5,7 @@ import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import { Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import CommentListComponent from './CommentListComponent';
 
 const PostListComponent = (props: any) => {
   return (
@@ -25,13 +26,10 @@ const PostListComponent = (props: any) => {
                     secondary={
                         <React.Fragment>
                         {post.body}
+                        <CommentListComponent post_id={post.id}/>
                         </React.Fragment>
                     }
                 />
-                <Button variant="contained"
-                component={Link} 
-                to={`/comments/${post.id}`}>Comentários</Button>
-                {/* https://jsonplaceholder.typicode.com/posts/1/comments */}
             </ListItem>
             <Divider component="li" />
             </>
