@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './pages/App'
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
 import Tarefas from './pages/Tarefas'
 import Posts from './pages/Posts'
-import Comments from './pages/Comments'
 import './index.css'
 
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
@@ -15,9 +16,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="Login/" element={<Login />} />
+        <Route path="SignUp/" element={<SignUp />} />
         <Route path="tarefas/:user_id" element={<Tarefas />} />
         <Route path="posts/:user_id" element={<Posts />} />
-        <Route path="comments/:post_id" element={<Comments />} />
         <Route
           path="*"
           element={
