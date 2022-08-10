@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props: any) {
   return (
@@ -30,6 +31,7 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 const Login = (props: any) => {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
 
 
@@ -49,7 +51,7 @@ const Login = (props: any) => {
   
 
     if (users.map((user) => user.email).includes(email)) {
-      console.log('logado!')
+      navigate("/");
     } else {
       console.log('falhou!')
     }
