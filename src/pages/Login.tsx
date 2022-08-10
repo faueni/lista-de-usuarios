@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
 
 function Copyright(props: any) {
   return (
@@ -29,14 +30,29 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 const Login = (props: any) => {
+  const [users, setUsers] = useState([]);
+
+
+  fetch("https://jsonplaceholder.typicode.com/users/")
+    .then((response) => response.json())
+    .then((json) => {
+      setUsers(json)
+    });
+
+  console.log(users);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    let email = data.get('email')
+    let password = data.get('password')
+  
+
+    if (users.map((user) => user.email).includes(email)) {
+      console.log('logado!')
+    } else {
+      console.log('falhou!')
+    }
   };
 
   return (
